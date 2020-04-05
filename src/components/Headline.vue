@@ -77,11 +77,8 @@ export default {
   margin-top: 40px;
 }
 
-.headline-buttons:first-child {
-  margin-right: 30px;
+.headline-button_buy {
+  margin-right: 60px;
 }
 
-.headline-buttons:nth-child(2) {
-  margin-left: 30px;
-}
 </style>

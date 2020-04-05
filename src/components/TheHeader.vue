@@ -5,7 +5,7 @@
         <div class="navbar-brand"></div>
         <li class="nav-item brand">
           <router-link class="" :to="{ name: 'home' }">
-            KESZ/NYUJTS KEZET
+            Kollektiva
           </router-link>
         </li>
       </ul>

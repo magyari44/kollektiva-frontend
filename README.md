@@ -18,3 +18,6 @@ yarn run build
 # run unit tests
 yarn test
 ```
+
+The API uses a Postman Mock Service.
+https://documenter.getpostman.com/view/4438416/SzYbycrn
