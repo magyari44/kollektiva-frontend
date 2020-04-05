@@ -1,14 +1,11 @@
 <template>
   <footer>
-    <div class="container">
+    <div class="container general-container">
       <router-link class="logo-font" :to="{ name: 'home', params: {} }">
-        conduit
+        KESZ
       </router-link>
       <span class="attribution">
-        An interactive learning project from
-        <a rel="noopener noreferrer" target="blank" href="https://thinkster.io"
-          >Thinkster</a
-        >. Code &amp; design licensed under MIT.
+        Hack the crisis Hungary - TIXA
       </span>
     </div>
   </footer>
@@ -19,3 +16,10 @@ export default {
   name: "RwvFooter"
 };
 </script>
+
+<style scoped>
+footer {
+  height: 100px;
+  background: #262626;
+}
+</style>

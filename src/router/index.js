@@ -6,25 +6,9 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
+      name: "home",
       path: "/",
-      component: () => import("@/views/Home"),
-      children: [
-        {
-          path: "",
-          name: "home",
-          component: () => import("@/views/HomeGlobal")
-        },
-        {
-          path: "my-feed",
-          name: "home-my-feed",
-          component: () => import("@/views/HomeMyFeed")
-        },
-        {
-          path: "tag/:tag",
-          name: "home-tag",
-          component: () => import("@/views/HomeTag")
-        }
-      ]
+      component: () => import("@/views/Index")
     },
     {
       name: "login",
@@ -37,40 +21,27 @@ export default new Router({
       component: () => import("@/views/Register")
     },
     {
-      name: "settings",
-      path: "/settings",
-      component: () => import("@/views/Settings")
+      name: "about",
+      path: "/about",
+      component: () => import("@/views/About")
     },
+    {
+      name: "faq",
+      path: "/faq",
+      component: () => import("@/views/Faq")
+    },
+    {
+      name: "invite",
+      path: "/invite",
+      component: () => import("@/views/Invite")
+    },
+    {
+      name: "offer",
+      path: "/offer/:offerId",
+      component: () => import("@/views/SingleOfferView")
+    }
     // Handle child routes with a default, by giving the name to the
     // child.
     // SO: https://github.com/vuejs/vue-router/issues/777
-    {
-      path: "/@:username",
-      component: () => import("@/views/Profile"),
-      children: [
-        {
-          path: "",
-          name: "profile",
-          component: () => import("@/views/ProfileArticles")
-        },
-        {
-          name: "profile-favorites",
-          path: "favorites",
-          component: () => import("@/views/ProfileFavorited")
-        }
-      ]
-    },
-    {
-      name: "article",
-      path: "/articles/:slug",
-      component: () => import("@/views/Article"),
-      props: true
-    },
-    {
-      name: "article-edit",
-      path: "/editor/:slug?",
-      props: true,
-      component: () => import("@/views/ArticleEdit")
-    }
   ]
 });

@@ -1,20 +1,20 @@
 <template>
   <div id="app">
-    <RwvHeader />
+    <Header />
     <router-view></router-view>
-    <RwvFooter />
+    <Footer />
   </div>
 </template>
 
 <script>
-import RwvHeader from "@/components/TheHeader";
-import RwvFooter from "@/components/TheFooter";
+import Header from "@/components/TheHeader";
+import Footer from "@/components/TheFooter";
 
 export default {
   name: "App",
   components: {
-    RwvHeader,
-    RwvFooter
+    Header,
+    Footer
   }
 };
 </script>

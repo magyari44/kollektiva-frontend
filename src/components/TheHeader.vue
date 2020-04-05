@@ -1,82 +1,54 @@
 <template>
-  <nav class="navbar navbar-light">
+  <nav class="navbar navbar-light navbar-shadow navbar-fixed-top">
     <div class="container">
-      <router-link class="navbar-brand" :to="{ name: 'home' }">
-        conduit
-      </router-link>
-      <ul v-if="!isAuthenticated" class="nav navbar-nav pull-xs-right">
+      <ul class="nav navbar-nav pull-xs-left">
+        <div class="navbar-brand"></div>
+        <li class="nav-item brand">
+          <router-link class="" :to="{ name: 'home' }">
+            KESZ/NYUJTS KEZET
+          </router-link>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav pull-xs-right">
         <li class="nav-item">
           <router-link
-            class="nav-link"
+            class=""
             active-class="active"
             exact
-            :to="{ name: 'home' }"
+            :to="{ name: 'about' }"
           >
-            Home
+            A kezdeményezésről
           </router-link>
         </li>
         <li class="nav-item">
           <router-link
-            class="nav-link"
+            class=""
             active-class="active"
             exact
-            :to="{ name: 'login' }"
+            :to="{ name: 'invite' }"
           >
-            <i class="ion-compose"></i>Sign in
+            Meghívó
           </router-link>
         </li>
         <li class="nav-item">
           <router-link
-            class="nav-link"
+            class=""
+            active-class="active"
+            exact
+            :to="{ name: 'faq' }"
+          >
+            FAQ
+          </router-link>
+        </li>
+        <li class="nav-item connect">
+          <router-link
+            class="connect-link"
             active-class="active"
             exact
             :to="{ name: 'register' }"
           >
-            <i class="ion-compose"></i>Sign up
-          </router-link>
-        </li>
-      </ul>
-      <ul v-else class="nav navbar-nav pull-xs-right">
-        <li class="nav-item">
-          <router-link
-            class="nav-link"
-            active-class="active"
-            exact
-            :to="{ name: 'home' }"
-          >
-            Home
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link
-            class="nav-link"
-            active-class="active"
-            :to="{ name: 'article-edit' }"
-          >
-            <i class="ion-compose"></i>&nbsp;New Article
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link
-            class="nav-link"
-            active-class="active"
-            exact
-            :to="{ name: 'settings' }"
-          >
-            <i class="ion-gear-a"></i>&nbsp;Settings
-          </router-link>
-        </li>
-        <li class="nav-item" v-if="currentUser.username">
-          <router-link
-            class="nav-link"
-            active-class="active"
-            exact
-            :to="{
-              name: 'profile',
-              params: { username: currentUser.username }
-            }"
-          >
-            {{ currentUser.username }}
+            Csatlakozom
           </router-link>
         </li>
       </ul>
@@ -88,9 +60,58 @@
 import { mapGetters } from "vuex";
 
 export default {
-  name: "RwvHeader",
-  computed: {
-    ...mapGetters(["currentUser", "isAuthenticated"])
-  }
+  name: "RwvHeader"
 };
 </script>
+
+<style scoped>
+.navbar-shadow {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.navbar {
+  background: linear-gradient(
+    360deg,
+    #fcfcfc 0%,
+    rgba(252, 252, 252, 0) 831.9%
+  );
+  box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.25);
+  min-height: 75px;
+}
+
+.navbar .navbar-nav {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar .nav-item {
+  font-family: Fjalla One;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  margin: 0 10px;
+}
+
+.navbar .nav-item a {
+  color: #3d3d3d;
+}
+
+.navbar .nav-item.connect {
+  border: 2px solid #00aeb3;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 0 30px;
+}
+
+.navbar .nav-item.brand a {
+  color: #00aeb3;
+}
+
+.navbar .nav-item.connect .connect-link {
+  color: #00aeb3;
+  display: table-cell;
+  vertical-align: middle;
+}
+</style>
