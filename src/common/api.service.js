@@ -54,8 +54,8 @@ export const OfferService = {
     return ApiService.get("/all-offer");
   },
 
-  getOffer(resource, offerId = "") {
-    return Vue.axios.get(`${resource}/${offerId}`).catch(error => {
+  getOffer(resource, offerSlug) {
+    return Vue.axios.get(`/offerdata/${resource}`).catch(error => {
       throw new Error(`[OfferService] ApiService ${error}`);
     });
   }

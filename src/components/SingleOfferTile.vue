@@ -20,7 +20,7 @@
       <div class="description_wrapper-order_button">
         <router-link
           class="btn-orange btn-inner-stlye"
-          :to="{ name: 'offer', params: { offerId: offer.offer_id } }"
+          :to="{ name: 'offer', params: { offerSlug: offer.slug } }"
         >
           Tovább
         </router-link>

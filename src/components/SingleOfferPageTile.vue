@@ -48,6 +48,7 @@
             Due to the current regulations, many restaurants have closed and are
             fighting for their existence. With the purchase of a voucher there
             is a risk that due to a possible bankruptcy.
+            asd
           </div>
         </div>
       </div>
@@ -60,13 +61,20 @@ import { mapGetters } from "vuex";
 import { FETCH_OFFER } from "@/store/actions.type";
 export default {
   name: "SingleOfferPageTile",
-
-  beforeRouteEnter(to, from, next) {
-    Promise.all([store.dispatch(FETCH_OFFER, to.params.offerId)]).then(() => {
-      next();
-    });
+  created () {
+    // fetch the data when the view is created and the data is
+    // already being observed
+    this.fetchOffer()
   },
-
+  watch: {
+    // call again the method if the route changes
+    '$route': 'fetchOffer'
+  },
+  methods: {
+    fetchOffer () {
+      this.$store.dispatch(FETCH_OFFER, this.$route.params.offerSlug);
+    }
+  },
   computed: {
     ...mapGetters(["offer"])
   }

@@ -13,9 +13,9 @@ const getters = {
 };
 
 const actions = {
-  async [FETCH_OFFER](context, offerId) {
-    const { data } = await OfferService.getOffer(offerId);
-    context.commit(SET_OFFER, data);
+  async [FETCH_OFFER]({ commit }, offerSlug) {
+    const { data } = await OfferService.getOffer(offerSlug);
+    commit(SET_OFFER, data);
     return data;
   }
 };

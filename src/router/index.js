@@ -37,7 +37,7 @@ export default new Router({
     },
     {
       name: "offer",
-      path: "/offer/:offerId",
+      path: "/offer/:offerSlug",
       component: () => import("@/views/SingleOfferView")
     }
     // Handle child routes with a default, by giving the name to the
