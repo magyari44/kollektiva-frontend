@@ -2,32 +2,20 @@
   <div class="how_it_works-container general-container">
     <div class="how_it_works-instruction_1">
       <div class="how_it_works-instruction_1_image image"></div>
-      <div class="how_it_works-instruction_1_title title">
-        Vásárlás
-      </div>
       <div class="how_it_works-instruction_1_description description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam,
-        arcu vel sodales varius, lacus est ultricies nunc, ac semper lacus
+        Fizess most a szolgáltatásért és segítsd át a nehézségen a helyi vállalkozókat.
       </div>
     </div>
     <div class="how_it_works-instruction_2">
       <div class="how_it_works-instruction_2_image image"></div>
-      <div class="how_it_works-instruction_2_title title">
-        Fizetés
-      </div>
       <div class="how_it_works-instruction_2_description description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam,
-        arcu vel sodales varius, lacus est ultricies nunc, ac semper lacus
+        Vedd igénybe a szolgáltatást a krízishelyzet után.
       </div>
     </div>
     <div class="how_it_works-instruction_3">
       <div class="how_it_works-instruction_3_image image"></div>
-      <div class="how_it_works-instruction_3_title title">
-        Beváltás
-      </div>
       <div class="how_it_works-instruction_3_description description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam,
-        arcu vel sodales varius, lacus est ultricies nunc, ac semper lacus
+        Mutass példát másoknak és népszeruüsítsd a Kollektívát.
       </div>
     </div>
   </div>

@@ -3,8 +3,8 @@
     <div class="ask_for_invite-wrapper">
       <div class="ask_for_invite-wrapper-image image"></div>
       <div class="ask_for_invite-wrapper-description description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam,
-        arcu vel sodales varius, lacus est ultricies nunc, ac semper lacus
+        Küldjön meghívót nekik, vagy ha nem ismeri az elérhetöségüket, akkor
+        adja meg a vállalkozás nevét és mi felvesszük velük a kapcsolatot.
       </div>
       <div class="ask_for_invite-wrapper-button-container">
         <router-link

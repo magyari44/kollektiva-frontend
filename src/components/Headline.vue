@@ -1,12 +1,9 @@
 <template>
   <div class="headline-container general-container">
-    <div class="headline-title">
-      Headline es cimek
-    </div>
 
     <div class="headline-description">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam, arcu
-      vel sodales varius, lacus est ultricies nunc, ac semper lacus
+      Maradj kapcsolatban a számodra fontos vállalkozásokkal a krízis idején is.
+      A Kollektíva a kapocs a megbízható szolgáltatók és a nyitott szívű vevők között.
     </div>
 
     <div class="headline-buttons">
