@@ -1,4 +1,6 @@
-Hack the crisis Hungary - TIXA example headless frontend application
+Kollektíva example headless frontend application
+
+Demo: [http://kollektiva.surge.sh]
 
 The stack is built using [vue-cli webpack](https://github.com/vuejs-templates/webpack) so to get started all you have to do is:
 
@@ -21,3 +23,4 @@ yarn test
 
 The API uses a Postman Mock Service.
 https://documenter.getpostman.com/view/4438416/SzYbycrn
+

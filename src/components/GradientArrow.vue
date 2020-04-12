@@ -19,7 +19,7 @@ export default {
   background-image: url("../../public/img/background/gradient-separator.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 460px;
+  background: linear-gradient(145.81deg, #7F7FD5 15.44%, #00AEB3 51.31%, #91EAE4 83.6%);
   position: relative;
 }
 

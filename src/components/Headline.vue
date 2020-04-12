@@ -39,10 +39,10 @@ export default {
   background-image: url("../../../vue-realworld-example-app/public/img/background/gradient-title-bkg.svg");
   background-repeat: no-repeat;
   background-size: 100% auto;
+  background: linear-gradient(145.81deg, #7F7FD5 15.44%, #00AEB3 51.31%, #91EAE4 83.6%);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 500px;
   margin-top: 0px !important;
 }
 

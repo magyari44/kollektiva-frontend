@@ -19,6 +19,7 @@ export default {
   background-image: url("../../public/img/background/custom-headline-background.png");
   background-repeat: no-repeat;
   background-size: cover;
+  background: linear-gradient(145.81deg, #7F7FD5 15.44%, #00AEB3 51.31%, #91EAE4 83.6%);
   height: 360px;
   position: relative;
 }

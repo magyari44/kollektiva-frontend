@@ -16,6 +16,14 @@
             class=""
             active-class="active"
             exact
+            :to="{ name: 'offers' }"
+          >
+            Ajánlatok
+          </router-link>
+          <router-link
+            class=""
+            active-class="active"
+            exact
             :to="{ name: 'about' }"
           >
             A kezdeményezésről

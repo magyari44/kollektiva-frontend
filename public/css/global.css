@@ -3,6 +3,10 @@
   src: url(../font/FjallaOne-Regular.ttf);
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: Fjalla One;
 }
@@ -34,4 +38,19 @@ a:hover {
   text-transform: uppercase;
   color: #FFFFFF;
   padding: 9px 50px;
+}
+
+.form-input {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  box-shadow: inset -4px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.accordion__title {
+  padding: 5px!important;
+}
+
+.faq-wrapper {
+  margin: auto!important;
 }
