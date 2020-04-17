@@ -36,7 +36,6 @@ export default {
 
 <style scoped>
 .headline-container {
-  background-image: url("../../../vue-realworld-example-app/public/img/background/gradient-title-bkg.svg");
   background-repeat: no-repeat;
   background-size: 100% auto;
   background: linear-gradient(145.81deg, #7F7FD5 15.44%, #00AEB3 51.31%, #91EAE4 83.6%);
