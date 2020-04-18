@@ -1,5 +1,10 @@
 <template>
   <footer>
+    <cookie-law theme="dark-lime">
+      <div slot="message">
+        Az oldal sütiket használ <router-link to="/">ASZF</router-link>
+      </div>
+    </cookie-law>
     <div class="general-container footer-container">
       <div class="footer-container__left">
         <div>
@@ -61,8 +66,11 @@
 </template>
 
 <script>
-export default {
-  name: "RwvFooter"
+  import CookieLaw from 'vue-cookie-law'
+
+  export default {
+    name: "RwvFooter",
+    components: { CookieLaw }
 };
 </script>
 
