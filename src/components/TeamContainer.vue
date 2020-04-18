@@ -1,8 +1,8 @@
 <template>
   <div class="team_member--container general-container">
-    <h2 class="team_container--title mb-5">
+    <!-- <h2 class="team_container--title mb-5">
       Csapatunk
-    </h2>
+    </h2> -->
     <div class="team_tile--container">
       <TeamMemberTile v-for="(member, index) in teamMembers" :key="member.name" :name="member.name" :field="member.field" :picture="member.image"></TeamMemberTile>
     </div>
@@ -24,22 +24,22 @@
           },
           Berenike: {
             name: 'Hegedűs Bereniké',
-            field: 'UI/UX, webdesign',
-            image: '/img/team/csapat-logo.png'
+            field: 'UI/UX tervezés, frontend',
+            image: '/img/team/csapat-Berni.png'
           },
           Mark: {
             name: 'Juhász Márk',
-            field: 'Backend',
+            field: 'Backend fejlesztő',
             image: '/img/team/csapat-Mark.jpg'
           },
           Dora: {
             name: 'Kiss Dóra',
-            field: 'Logó/Grafika',
-            image: '/img/team/csapat-logo.png'
+            field: 'Grafika',
+            image: '/img/logo/logo-feher.png'
           },
           Norbert: {
             name: 'Magyari Norbert',
-            field: 'Frontend',
+            field: 'Frontend fejlesztő',
             image: '/img/team/csapat-Norbert.jpg'
           },
           Judit: {
@@ -54,7 +54,7 @@
           },
           Krisztian: {
             name: 'Wolf Krisztián',
-            field: 'Marketing',
+            field: 'Marketing és Kommunikáció',
             image: '/img/team/csapat-Krisztian.jpg'
           },
 
@@ -75,6 +75,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin: 100px 0 100px  0;
   }
 
 </style>

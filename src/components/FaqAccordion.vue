@@ -32,7 +32,7 @@
   .faq--title {
     display: flex;
     justify-content: center;
-    font-family: Fjalla One;
+    font-family: Oswald;
     font-style: normal;
     font-weight: normal;
     font-size: 36px;

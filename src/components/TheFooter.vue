@@ -71,7 +71,7 @@ export default {
     background: #383838;
   }
   footer div {
-    font-family: Lato;
+    font-family: Monsterrat;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;

@@ -46,9 +46,10 @@ export default {
 }
 
 .headline-title {
-  font-family: Fjalla One;
+  font-family: Oswald;
   font-style: normal;
   font-weight: normal;
+  text-align: center;
   font-size: 32px;
   line-height: 40px;
   color: #ffffff;
@@ -57,14 +58,9 @@ export default {
 }
 
 .headline-description {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
   color: #ffffff;
   margin-top: 40px;
+  text-align: center;
 }
 
 .headline-buttons {

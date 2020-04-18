@@ -24,6 +24,9 @@
     border-radius: 50%;
     max-width: 12rem;
     box-shadow: 0px 5px 5px 0px #adb5bd;
+    padding: 3px;
+    background: -webkit-linear-gradient(left top, #8F7FD5 10%, #00AEB3 50%, #91EAE4 80%);
+  
   }
 
   .team_member_tile--picture {

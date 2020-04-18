@@ -41,7 +41,7 @@ export default {
 .how_it_works-instruction_1_title.title,
 .how_it_works-instruction_2_title.title,
 .how_it_works-instruction_3_title.title {
-  font-family: Fjalla One;
+  font-family: Oswald;
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
@@ -53,18 +53,12 @@ export default {
   margin-top: 13px;
 }
 
-.how_it_works-instruction_1_description.description,
+ .how_it_works-instruction_1_description.description,
 .how_it_works-instruction_2_description.description,
 .how_it_works-instruction_3_description.description {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-  color: #3d3d3d;
   margin-top: 15px;
-}
+  text-align: center;
+} 
 
 .how_it_works-instruction_1_image {
   background-image: url("../../public/img/icons/1-ikon.png");

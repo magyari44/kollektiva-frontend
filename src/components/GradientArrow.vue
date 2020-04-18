@@ -26,7 +26,7 @@ export default {
 .gradient_arrow-inner_text {
   display: flex;
   justify-content: center;
-  font-family: Fjalla One;
+  font-family: Oswald;
   font-style: normal;
   font-weight: normal;
   font-size: 32px;

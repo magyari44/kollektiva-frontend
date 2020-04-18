@@ -93,7 +93,7 @@ export default {
 }
 
 .navbar .nav-item {
-  font-family: Fjalla One;
+  font-family: "Oswald", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;

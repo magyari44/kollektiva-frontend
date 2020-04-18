@@ -66,20 +66,18 @@ export default {
 }
 
 .description_wrapper-title {
-  font-family: Fjalla One;
+  text-align: left;
+  font-family: Oswald;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 20px;
-  text-transform: uppercase;
   color: #3d3d3d;
   margin-bottom: 7px;
 }
 
 .description_wrapper-location {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
+  text-align: left;
   font-size: 12px;
   line-height: 14px;
   color: #828282;
@@ -87,19 +85,14 @@ export default {
 }
 
 .description_wrapper-description {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
+  text-align: left;
   font-size: 12px;
   line-height: 14px;
-  color: #3d3d3d;
   margin-bottom: 20px;
 }
 
 .description_wrapper-category {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
+  text-align: left;
   font-size: 12px;
   line-height: 14px;
   color: #00aeb3;
