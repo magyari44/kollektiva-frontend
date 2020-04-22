@@ -44,6 +44,11 @@ export default new Router({
       name: "offers",
       path: "/ajanlatok",
       component: () => import("@/views/Offers")
+    },
+    {
+      name: "create-offer",
+      path: "/ajanlat-keszites",
+      component: () => import("@/views/CreateOffer")
     }
     // Handle child routes with a default, by giving the name to the
     // child.

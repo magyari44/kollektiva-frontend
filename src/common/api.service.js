@@ -51,12 +51,28 @@ export default ApiService;
 
 export const OfferService = {
   getOffers() {
-    return ApiService.get("/all-offer");
+    return ApiService.get("/offers");
   },
 
   getOffer(resource, offerSlug) {
-    return Vue.axios.get(`/offerdata/${resource}`).catch(error => {
+    return Vue.axios.get(`/offer/${resource}`).catch(error => {
       throw new Error(`[OfferService] ApiService ${error}`);
     });
+  },
+
+  uploadSingleOffer(params) {
+    return Vue.axios.post("/create", params);
   }
 };
+
+export const UserService = {
+  registerUser(params) {
+    return Vue.axios.post("/register", params);
+  }
+};
+
+export const CategoriesService = {
+  getCategories() {
+    return ApiService.get("/categories");
+  }
+}

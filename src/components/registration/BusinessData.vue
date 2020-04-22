@@ -1,5 +1,5 @@
 <template>
-  <div v-if="registration_tpye === '0'">
+  <div v-if="registration_type === '1'">
 
     <!--            Bankszámlaszám-->
     <fieldset class="form-group">
@@ -110,7 +110,7 @@
   export default {
     name: "BusinessData",
     props: {
-      registration_tpye: String,
+      registration_type: String,
       bank_account_number: String,
       tax_number: String,
       zip_code: String,

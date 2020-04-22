@@ -11,27 +11,9 @@ import RegistrationContainer from "../components/RegistrationContainer";
 
 export default {
   name: "RegistrationView",
-  components: {CustomHeadline,
-    RegistrationContainer},
-  data() {
-    return {
-      username: "",
-      email: "",
-      password: ""
-    };
-  },
-  computed: {
-  },
-  methods: {
-    onSubmit() {
-      this.$store
-        .dispatch(REGISTER, {
-          email: this.email,
-          password: this.password,
-          username: this.username
-        })
-        .then(() => this.$router.push({ name: "home" }));
-    }
+  components: {
+    CustomHeadline,
+    RegistrationContainer
   }
 };
 </script>

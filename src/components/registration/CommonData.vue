@@ -7,8 +7,10 @@
         class="form-control form-control-lg form-input"
         id="real-name"
         type="text"
-        v-model="realName"
+        v-model="real_name"
         placeholder="Teljes név"
+        @keyup="$emit('update:real_name', real_name)"
+
       />
     </fieldset>
 
@@ -20,6 +22,8 @@
         type="text"
         v-model="username"
         placeholder="Felhasználónév"
+        @keyup="$emit('update:username', username)"
+
       />
     </fieldset>
 
@@ -31,6 +35,7 @@
         type="text"
         v-model="email"
         placeholder="Email cím"
+        @keyup="$emit('update:email', email)"
       />
     </fieldset>
 
@@ -43,6 +48,8 @@
         type="text"
         v-model="business_email"
         placeholder="Vállalkozás email címe"
+        @keyup="$emit('update:business_email', business_email)"
+
       />
     </fieldset>
   </section>
@@ -53,7 +60,7 @@
   export default {
     name: "CommonData",
     props: {
-      realName: String,
+      real_name: String,
       username: String,
       email: String,
       business_email: String

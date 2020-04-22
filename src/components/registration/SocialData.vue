@@ -1,6 +1,6 @@
 <template>
   <!--            SOCIAL-->
-  <section v-if="registration_type === '0'">
+  <section v-if="registration_type === '1'">
     <!--            Weboldal-->
     <fieldset class="form-group">
       <label for="web-address">Weboldal URL</label>
