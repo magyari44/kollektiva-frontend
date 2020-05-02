@@ -5,12 +5,13 @@
         <div class="navbar-brand"></div>
         <li class="nav-item brand">
           <router-link class="" :to="{ name: 'home' }">
+            <img src="img/logo/logo-2.png" style="max-height: 40px"/>
             Kollektiva
           </router-link>
         </li>
       </ul>
 
-      <ul class="nav navbar-nav pull-xs-right">
+      <ul class="nav navbar-nav pull-xs-right d-flex flex-sm-row flex-column">
         <li class="nav-item">
           <router-link
             class=""
@@ -20,6 +21,8 @@
           >
             Ajánlatok
           </router-link>
+        </li>
+        <li class="nav-item">
           <router-link
             class=""
             active-class="active"
@@ -46,7 +49,7 @@
             exact
             :to="{ name: 'faq' }"
           >
-            FAQ
+            GYIK
           </router-link>
         </li>
         <li class="nav-item connect">
@@ -74,7 +77,7 @@ export default {
 
 <style scoped>
 .navbar-shadow {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .navbar {
@@ -83,12 +86,14 @@ export default {
     #fcfcfc 0%,
     rgba(252, 252, 252, 0) 831.9%
   );
-  box-shadow: 10px 0px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 10px 0 20px rgba(0, 0, 0, 0.25);
   min-height: 75px;
+  position: relative;
+  padding: .5rem 1rem;
 }
 
+
 .navbar .navbar-nav {
-  flex-direction: row;
   justify-content: space-between;
 }
 
@@ -122,4 +127,12 @@ export default {
   display: table-cell;
   vertical-align: middle;
 }
+
+@media screen and (max-width: 576px) {
+  .navbar .nav-item {
+    margin-bottom: 0.3rem;
+  }
+}
+
+
 </style>

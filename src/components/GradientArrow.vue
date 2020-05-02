@@ -16,11 +16,10 @@ export default {
 <style scoped>
 .gradient_arrow-image {
   margin-top: 50px;
-  background-image: url("../../public/img/background/gradient-separator.svg");
-  background-repeat: no-repeat;
   background-size: cover;
-  background: linear-gradient(145.81deg, #7F7FD5 15.44%, #00AEB3 51.31%, #91EAE4 83.6%);
+  background: linear-gradient(145.81deg, #7F7FD5 15.44%, #00AEB3 51.31%, #91EAE4 83.6%) no-repeat;
   position: relative;
+  padding: 20px 0;
 }
 
 .gradient_arrow-inner_text {

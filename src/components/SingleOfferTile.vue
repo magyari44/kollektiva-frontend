@@ -1,6 +1,6 @@
 <template>
-  <div class="single_offer-container">
-    <div class="single_offer-image">
+  <article class="single_offer-container">
+    <div class="single_offer-image singe_offer-image_outer">
       <img :src="offer.picture" />
     </div>
 
@@ -14,6 +14,9 @@
       <div class="description_wrapper-location">
         5600 Békéscsaba, Dobozi út 58.
       </div>
+      <div class="single_offer-image singe_offer-image_inner mb-3" >
+        <img :src="offer.picture" class="responsive"/>
+      </div>
       <div class="description_wrapper-description">
         {{ offer.description }}
       </div>
@@ -26,7 +29,7 @@
         </router-link>
       </div>
     </div>
-  </div>
+  </article>
 </template>
 
 <script>
@@ -110,4 +113,36 @@ export default {
   border-radius: 10px;
   color: #f0ac45;
 }
+
+.singe_offer-image_inner {
+  display: none;
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+  .singe_offer-image_outer {
+    display: none;
+  }
+
+  .singe_offer-image_inner {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .single_offer-image img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+  }
+
+  .description_wrapper-title,
+  .description_wrapper-category,
+  .description_wrapper-location {
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
 </style>

@@ -2,6 +2,8 @@
 
 html, body {
   height: 100%;
+  min-width: 340px;
+  margin:0 auto;
 }
 
 body {
@@ -59,4 +61,23 @@ a:hover {
 
 .faq-wrapper {
   margin: auto!important;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+footer {
+  flex-shrink: 0;
+}
+
+footer {
+  background: #383838;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 576px) {
+  .general-container {
+    padding: 0;
+  }
+
 }

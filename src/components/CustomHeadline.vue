@@ -33,6 +33,5 @@ export default {
   line-height: 40px;
   color: #ffffff;
   position: relative;
-  top: 60%;
 }
 </style>

@@ -68,7 +68,10 @@ export const OfferService = {
 export const UserService = {
   registerUser(params) {
     return Vue.axios.post("/register", params);
-  }
+  },
+  loginUser(params) {
+    return ApiService.post("/login", params);
+  },
 };
 
 export const CategoriesService = {

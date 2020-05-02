@@ -4,4 +4,4 @@ export const FETCH_OFFER = "fetchOffer";
 export const REGISTER_USER = "registerUser"
 export const FETCH_CATEGORIES = "fetchCategories";
 export const UPLOAD_OFFER = "uploadSingleOffer";
-export const LOGIN = "loginUser";
+export const LOGIN_USER = "loginUser";

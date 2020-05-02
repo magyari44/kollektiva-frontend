@@ -1,114 +1,148 @@
 <template>
-  <div v-if="registration_type === '1'">
+  <ValidationObserver tag="fieldset" v-if="registration_type == '2'" class="mb-4">
 
+    <h2 class="form-group row d-flex justify-content-center mb-2">Vállalkozói adatok</h2>
+    <div class="form-group row col-lg-12">
     <!--            Bankszámlaszám-->
-    <fieldset class="form-group">
+    <div class="col-lg-9 mb-2">
       <label for="bank-account-number">Bankszámlaszám</label>
+      <validation-provider rules="required" v-slot="{ errors }">
       <input
         class="form-control form-control-lg form-input"
         id="bank-account-number"
-        type="text"
-        v-model="bank_account_number"
+        type="tel"
+        minlength="16"
+        maxlength="26"
+        name="bankszámlaszám"
+        v-mask="['########-########', '########-########-########']"
+        v-model="bankAccountNumber"
         placeholder="Bankszámlaszám"
-        @keyup="$emit('update:bank_account_number', bank_account_number)"
-
+        @keyup="$emit('update:bank_account_number', bankAccountNumber)"
       />
-    </fieldset>
+      <span>{{ errors[0] }}</span>
+      </validation-provider>
+    </div>
 
     <!--            Adószám-->
-    <fieldset class="form-group">
+    <div class="col-lg-3 mb-2">
       <label for="tax-number">Adószám</label>
+      <validation-provider rules="required" v-slot="{ errors }">
       <input
         class="form-control form-control-lg form-input"
         id="tax-number"
-        type="text"
-        v-model="tax_number"
+        type="tel"
+        name="adószám"
+        minlength="13"
+        maxlength="13"
+        v-mask="['########-#-##']"
+        v-model="taxNumber"
         placeholder="Adószám"
-        @keyup="$emit('update:tax_number', tax_number)"
-
+        @keyup="$emit('update:tax_number', taxNumber)"
       />
-    </fieldset>
+        <span>{{ errors[0] }}</span>
+      </validation-provider>
+    </div>
 
     <!--            Irányítószám-->
-    <fieldset class="form-group">
+    <div class="col-lg-2 mb-2">
       <label for="zip-code">Irányítószám</label>
+      <validation-provider rules="required" v-slot="{ errors }">
       <input
         class="form-control form-control-lg form-input"
         id="zip-code"
         type="text"
-        v-model="zip_code"
+        name="irányítószám"
+        minlength="4"
+        maxlength="4"
+        v-mask="['####']"
+        v-model="zipCode"
         placeholder="Irányítószám"
-        @keyup="$emit('update:zip_code', zip_code)"
-
+        @keyup="$emit('update:zip_code', zipCode)"
       />
-    </fieldset>
+      <span>{{ errors[0] }}</span>
+      </validation-provider>
+    </div>
 
     <!--            Város-->
-    <fieldset class="form-group">
-      <label for="business-city">Vállalkozás városa</label>
+    <div class="col-lg-3 mb-2">
+      <label for="business-city">Város</label>
+      <validation-provider rules="required" v-slot="{ errors }">
       <input
         class="form-control form-control-lg form-input"
         id="business-city"
         type="text"
-        v-model="business_city"
-        placeholder="Vállalkozás városa"
-        @keyup="$emit('update:business_city', business_city)"
-
+        maxlength="50"
+        name="város"
+        v-model="businessCity"
+        placeholder="város"
+        @keyup="$emit('update:business_city', businessCity)"
       />
-    </fieldset>
+        <span>{{ errors[0] }}</span>
+      </validation-provider>
+    </div>
 
 
     <!--            Cím-->
-    <fieldset class="form-group">
-      <label for="business-address">Vállalkozás címe</label>
+    <div class="col-lg-7 mb-2">
+      <label for="business-address">Cím</label>
+      <validation-provider rules="required" v-slot="{ errors }">
       <input
         class="form-control form-control-lg form-input"
         id="business-address"
         type="text"
-        v-model="business_address"
-        placeholder="Vállalkozás címe"
-        @keyup="$emit('update:business_address', business_address)"
-
+        maxlength="50"
+        name="cím"
+        v-model="businessAddress"
+        placeholder="cím"
+        @keyup="$emit('update:business_address', businessAddress)"
       />
-    </fieldset>
+      <span>{{ errors[0] }}</span>
+      </validation-provider>
+    </div>
 
     <!--            Logó-->
-    <fieldset class="form-group">
-      <label for="business-logo">Vállalkozás logója</label>
-      <input
-        class="form-control form-control-lg form-input"
-        id="business-logo"
-        type="text"
-        v-model="business_logo"
-        placeholder="Vállalkozás logója"
-        @keyup="$emit('update:business_logo', business_logo)"
-
-      />
-    </fieldset>
-
+    <div v-if="registration_type === '2'" class="col-lg-12 mb-2">
+      <FileUpload label="Logó" maxPictureCount="1"
+                  v-on:change="getFiles"></FileUpload>
+    </div>
 
     <!--            Bemutatkozás-->
-    <fieldset class="form-group">
+    <div class="col-lg-12 mb-2">
       <label for="business-description">Vállalkozás bemutatása</label>
+      <validation-provider rules="required" v-slot="{ errors }">
       <textarea
         class="form-control form-control-lg form-input"
         id="business-description"
         type="text"
-        v-model="business_description"
+        maxlength="255"
+        name="vállalkozás bemutatása"
+        v-model="businessDescription"
         placeholder="Vállalkozás bemutatása"
-        @keyup="$emit('update:business_description', business_description)"
-
+        @keyup="$emit('update:business_description', businessDescription)"
       />
-    </fieldset>
+        <span>{{ errors[0] }}</span>
+      </validation-provider>
+    </div>
+    </div>
 
-  </div>
+  </ValidationObserver>
 
 
 </template>
 
 <script>
+  import FileUpload from "../FileUpload";
+  import { ValidationProvider,ValidationObserver, extend } from "vee-validate/dist/vee-validate.full";
+  import {mask} from 'vue-the-mask'
+
+
   export default {
     name: "BusinessData",
+    components: {
+      FileUpload,
+      ValidationProvider,
+      ValidationObserver
+    },
     props: {
       registration_type: String,
       bank_account_number: String,
@@ -116,9 +150,28 @@
       zip_code: String,
       business_city: String,
       business_address: String,
-      business_logo: String,
+      business_logo: Array,
       business_description: String,
+    },
+    directives: {mask},
+    data() {
+      return {
+        bankAccountNumber: this.bank_account_number,
+        taxNumber: this.tax_number,
+        zipCode: this.zip_code,
+        businessCity: this.business_city,
+        businessAddress: this.business_address,
+        businessLogo: this.business_logo,
+        businessDescription: this.business_description,
 
+      }
+    },
+    methods: {
+      getFiles(files) {
+        if (files) {
+          this.businessLogo = files;
+        }
+      },
     }
   };
 </script>

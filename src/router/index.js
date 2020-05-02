@@ -54,4 +54,5 @@ export default new Router({
     // child.
     // SO: https://github.com/vuejs/vue-router/issues/777
   ]
+
 });

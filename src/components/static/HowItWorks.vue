@@ -1,18 +1,18 @@
 <template>
-  <div class="how_it_works-container general-container">
-    <div class="how_it_works-instruction_1">
+  <div class="how_it_works-container general-container d-flex flex-md-nowrap flex-wrap flex-xs-wrap justify-content-center">
+    <div class="how_it_works-instruction_1 col-md-4 col-sm-12">
       <div class="how_it_works-instruction_1_image image"></div>
       <div class="how_it_works-instruction_1_description description">
         Fizess most a szolgáltatásért és segítsd át a nehézségen a helyi vállalkozókat.
       </div>
     </div>
-    <div class="how_it_works-instruction_2">
+    <div class="how_it_works-instruction_2col-md-4 col-sm-12">
       <div class="how_it_works-instruction_2_image image"></div>
       <div class="how_it_works-instruction_2_description description">
         Vedd igénybe a szolgáltatást a krízishelyzet után.
       </div>
     </div>
-    <div class="how_it_works-instruction_3">
+    <div class="how_it_works-instruction_3 col-md-4 col-sm-12">
       <div class="how_it_works-instruction_3_image image"></div>
       <div class="how_it_works-instruction_3_description description">
         Mutass példát másoknak és népszeruüsítsd a Kollektívát.
@@ -58,16 +58,16 @@ export default {
 .how_it_works-instruction_3_description.description {
   margin-top: 15px;
   text-align: center;
-} 
+}
 
 .how_it_works-instruction_1_image {
-  background-image: url("../../public/img/icons/1-ikon.png");
+  background-image: url("../../../public/img/icons/1-ikon.png");
 }
 .how_it_works-instruction_2_image {
-  background-image: url("../../public/img/icons/2-ikon.png");
+  background-image: url("../../../public/img/icons/2-ikon.png");
 }
 .how_it_works-instruction_3_image {
-  background-image: url("../../public/img/icons/3-ikon.png");
+  background-image: url("../../../public/img/icons/3-ikon.png");
 }
 
 .how_it_works-instruction_1_image.image,

@@ -5,21 +5,23 @@
         Az oldal sütiket használ <router-link to="/">ASZF</router-link>
       </div>
     </cookie-law>
-    <div class="general-container footer-container">
-      <div class="footer-container__left">
-        <div>
+    <div class="general-container d-flex flex-wrap" >
+      <div class="col-md-12">
+        <div class="footer-img col-md-3 mb-4">
           <router-link class="logo-font" :to="{ name: 'home', params: {} }">
-            KESZ
+          <img src="img/logo/logo-feher.png" />
           </router-link>
         </div>
-        <div class="" style="max-width: 70%">
+      </div>
+      <div class="col-md-6" >
+        <div class="col-lg-8" style="">
           <p>A Kollektíva  elindításával az volt a célunk, hogy a jelenlegi vészhelyzetben egyáltalán nem működő,
             stagnáló és jelentős anyagi veszteséget elszenvedő vállalkozásoknak és az őket támogatni kívánó vásárlóközönségnek
             létrehozzunk egy közös támogató felületet.</p>
         </div>
       </div>
-      <div class="footer-container__right">
-        <div class="footer-container__right_column">
+      <div class="col-md-6 d-flex flex-wrap">
+        <div class="footer-container__right_column col-lg-6 d-flex flex-column">
           <router-link
             class=""
             active-class="active"
@@ -53,7 +55,7 @@
               FAQ
             </router-link>
         </div>
-        <div class="footer-container__right_column">
+        <div class="footer-container__right_column col-lg-6">
           <div>Kapcsolat</div>
           <div>Email: info@koll.hu</div>
           <div>Telefon: +36 30 1234 12</div>
@@ -75,38 +77,32 @@
 </script>
 
 <style scoped>
-  footer {
-    background: #383838;
-  }
-  footer div {
-    font-family: Monsterrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
-
-    color: #FFFFFF;
+  .footer-img{
+    height: 170px;
   }
 
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .footer-container__left {
-    max-width: 50%;
-  }
-
-  .footer-container__right {
-    display: flex;
-    flex-direction: row;
-    width: 50%;
-    justify-content: space-between;
+  .footer-img img {
+    max-width: 100%;
+    max-height: 100%;
   }
 
   .footer-container__right_column {
-    display: flex;
-    flex-direction: column;
+    font-size: 18px;
+    line-height: 23px;
+    color: #FFFFFF;
+  }
+
+  .footer-container__right_column a {
+    margin-bottom: 15px;
+    color: #00aeb3;;
+  }
+
+  .footer-container__right_column a:hover {
+    color: #7F7FD5;;
+  }
+
+  .footer-container__right_column > div {
+    margin-bottom: 15px;
   }
 
 </style>

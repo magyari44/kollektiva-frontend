@@ -10,7 +10,7 @@
 <script>
   import CustomHeadline from "../components/CustomHeadline";
   import TeamContainer from "../components/TeamContainer";
-  import AboutInitiative from "../components/AboutInitiative";
+  import AboutInitiative from "../components/static/AboutInitiative";
 export default {
   name: "About",
   components: {

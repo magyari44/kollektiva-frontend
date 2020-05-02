@@ -59,7 +59,7 @@ export default {
 }
 
 .ask_for_invite-wrapper-image {
-  background-image: url("../../public/img/icons/5ikonmeghivas.png");
+  background-image: url("../../../public/img/icons/5ikonmeghivas.png");
 }
 
 .ask_for_invite-wrapper-image.image {

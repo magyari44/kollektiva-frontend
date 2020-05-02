@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="position: relative">
     <Headline></Headline>
     <HowItWorks></HowItWorks>
     <GradientArrow separator-title="Kiemelt ajánlatok"></GradientArrow>
@@ -13,10 +13,10 @@
 
 <script>
 import Headline from "@/components/Headline";
-import HowItWorks from "@/components/HowItWorks";
+import HowItWorks from "../components/static/HowItWorks";
 import OfferList from "@/components/OfferList";
 import GradientArrow from "@/components/GradientArrow";
-import AskForInvite from "@/components/AskForInvite";
+import AskForInvite from "../components/static/AskForInvite";
 
 export default {
   name: "Index",

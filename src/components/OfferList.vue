@@ -1,8 +1,6 @@
 <template>
   <div class="offer_list-container general-container">
-    <div v-for="offer in featuredOffers">
-      <SingleOffer :offer="offer"></SingleOffer>
-    </div>
+      <SingleOffer v-for="offer in featuredOffers" :offer="offer"></SingleOffer>
   </div>
 </template>
 

@@ -1,54 +1,88 @@
 <template>
   <!--            SZÁMLÁZÁS-->
-  <section>
-    <!--            Számlázási irányítószám-->
-    <fieldset class="form-group">
-      <label for="billing-zip">Számlázási irányítószám</label>
-      <input
-        class="form-control form-control-lg form-input"
-        id="billing-zip"
-        type="text"
-        v-model="billingZipCode"
-        placeholder="Számlázási irányítószám"
-        @keyup="$emit('update:billingZipCode', billingZipCode)"
-      />
-    </fieldset>
+  <ValidationObserver tag="fieldset" class="mb-4">
+    <h2 class="form-group row d-flex justify-content-center mb-2">Számlázási adatok</h2>
+    <div class="form-group row col-lg-12">
+      <!--            Számlázási irányítószám-->
+      <div class="col-lg-2 col-md-3">
+        <label for="billing-zip">Irányítószám</label>
+        <validation-provider rules="required" v-slot="{ errors }">
+        <input
+          class="form-control form-control-lg form-input"
+          id="billing-zip"
+          type="text"
+          name="irányítószám"
+          v-mask="['####']"
+          v-model="localBillingZipCode"
+          placeholder="Irányítószám"
+          @keyup="$emit('update:billing_zip_code', localBillingZipCode)"
+        />
+        <span>{{ errors[0] }}</span>
+        </validation-provider>
+      </div>
 
-    <!--            Számlázási város-->
-    <fieldset class="form-group">
-      <label for="billing-city">Számlázási város</label>
-      <input
-        class="form-control form-control-lg form-input"
-        id="billing-city"
-        type="text"
-        v-model="billingCity"
-        placeholder="Számlázási város"
-        @keyup="$emit('update:billingCity', billingCity)"
-      />
-    </fieldset>
+      <!--            Számlázási város-->
+      <div class="col-lg-3 col-md-9">
+        <label for="billing-city">Város</label>
+        <validation-provider rules="required" v-slot="{ errors }">
+        <input
+          class="form-control form-control-lg form-input"
+          id="billing-city"
+          type="text"
+          maxlength="50"
+          name="város"
+          v-model="localBillingCity"
+          placeholder="Város"
+          @keyup="$emit('update:billing_city', localBillingCity)"
+        />
+          <span>{{ errors[0] }}</span>
+        </validation-provider>
+      </div>
 
-    <!--            Számlázási cím-->
-    <fieldset class="form-group">
-      <label for="billing-address">Számlázási cím</label>
-      <input
-        class="form-control form-control-lg form-input"
-        id="billing-address"
-        type="text"
-        v-model="billingAddress"
-        placeholder="Számlázási cím"
-        @keyup="$emit('update:billingAddress', billingAddress)"
-      />
-    </fieldset>
-  </section>
+      <!--            Számlázási cím-->
+      <div class="col-lg-7 col-md-12">
+        <label for="billing-address">Cím</label>
+        <validation-provider rules="required" v-slot="{ errors }">
+        <input
+          class="form-control form-control-lg form-input"
+          id="billing-address"
+          type="text"
+          maxlength="50"
+          name="cím"
+          v-model="localBillingAddress"
+          placeholder="Cím"
+          @keyup="$emit('update:billing_address', localBillingAddress)"
+        />
+        <span>{{ errors[0] }}</span>
+        </validation-provider>
+      </div>
+    </div>
+
+
+  </ValidationObserver>
 </template>
 
 <script>
+  import { ValidationProvider,ValidationObserver, extend } from "vee-validate/dist/vee-validate.full";
+  import {mask} from 'vue-the-mask'
   export default {
     name: "BillingData",
+    components: {
+      ValidationProvider,
+      ValidationObserver,
+    },
     props: {
-      billingZipCode: String,
-      billingCity: String,
-      billingAddress: String
+      billing_zip_code: String,
+      billing_city: String,
+      billing_address: String
+    },
+    directives: {mask},
+    data() {
+      return {
+        localBillingZipCode: this.billing_zip_code,
+        localBillingCity: this.billing_city,
+        localBillingAddress: this.billing_address,
+      }
     }
   };
 </script>

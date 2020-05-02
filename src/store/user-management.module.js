@@ -1,5 +1,6 @@
 import {
   REGISTER_USER,
+  LOGIN_USER
 } from "./actions.type";
 
 import {
@@ -8,14 +9,25 @@ import {
 
 import {UserService} from "../common/api.service";
 
-const state = {
-  responseCode: true
-};
+export function getInitialState() {
+  return {
+    user: {
+      username: "",
+    },
+    isAuthenticated: false,
+    // ...asyncState(LOGIN_USER, REGISTER_USER)
+  }
+}
+
+const state = getInitialState();
 
 const getters = {
   user(state) {
     return state.user;
   },
+  isAuthenticated(state) {
+    return state.isAuthenticated;
+  }
 };
 
 const actions = {
@@ -58,6 +70,31 @@ const actions = {
         throw new Error(error);
       });
   },
+  [LOGIN_USER]({commit}, params) {
+
+    let operation = {action: LOGIN_USER, successCode: 200, mutation: loginUserCallback};
+
+    let payload = {
+      email: params.email,
+      password: params.password,
+    };
+    return UserService.loginUser(payload)
+      .then(response => {
+        store.dispatch('parametricSearch/' + EAGER_FETCH_PRODUCTS, null).then(() => {
+          commit(ASYNC_ACTION_END, toMutationPayload(operation, response));
+          Utils.tackUserId(response.data.userId);
+          console.log("parametric table data eagerly loaded.");
+        }).catch(() => {
+          console.warn("cannot eagerly load parametric table.");
+          commit(ASYNC_ACTION_END, toMutationPayload(operation, response));
+          Utils.tackUserId(response.data.userId);
+        });
+      })
+      .catch(error => {
+        commit(NO_RESPONSE_ERROR, toMutationPayload(operation, error.response));
+        throw new Error(error);
+      });
+  },
 };
 
 const mutations = {
@@ -65,6 +102,11 @@ const mutations = {
     state.responseCode = response;
   }
 };
+
+function loginUserCallback(state, response) {
+  state.user = response.data;
+  state.isAuthenticated = true;
+}
 
 export default {
   state,

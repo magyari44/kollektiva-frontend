@@ -1,13 +1,12 @@
 <template>
   <div class="headline-container general-container">
 
-    <div class="headline-description">
-      Maradj kapcsolatban a számodra fontos vállalkozásokkal a krízis idején is.
+    <detail class="headline-description">Maradj kapcsolatban a számodra fontos vállalkozásokkal a krízis idején is.
       A Kollektíva a kapocs a megbízható szolgáltatók és a nyitott szívű vevők között.
-    </div>
+    </detail>
 
-    <div class="headline-buttons">
-      <div class="headline-button_buy">
+    <div class="headline-buttons d-flex flex-sm-wrap flex-sm-row flex-column">
+      <div class="headline-button_buy d-flex justify-content-center">
         <router-link
           class="btn-orange btn-inner-stlye"
           :to="{ name: 'register' }"
@@ -16,7 +15,7 @@
         </router-link>
       </div>
 
-      <div class="headline-button_sell">
+      <div class="headline-button_sell d-flex justify-content-center">
         <router-link
           class="btn-orange btn-inner-stlye"
           :to="{ name: 'register' }"
@@ -36,13 +35,13 @@ export default {
 
 <style scoped>
 .headline-container {
-  background-repeat: no-repeat;
   background-size: 100% auto;
-  background: linear-gradient(145.81deg, #7F7FD5 15.44%, #00AEB3 51.31%, #91EAE4 83.6%);
+  background: linear-gradient(145.81deg, #7F7FD5 15.44%, #00AEB3 51.31%, #91EAE4 83.6%) no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 0px !important;
+  margin-top: 0 !important;
+  padding: 20px 0;
 }
 
 .headline-title {
@@ -59,8 +58,8 @@ export default {
 
 .headline-description {
   color: #ffffff;
-  margin-top: 40px;
   text-align: center;
+  padding: 0 10px;
 }
 
 .headline-buttons {
@@ -71,6 +70,14 @@ export default {
 
 .headline-button_buy {
   margin-right: 60px;
+}
+
+@media screen and (max-width: 576px) {
+  .headline-button_buy {
+    margin-right: 0;
+    margin-bottom: 0.6rem;
+  }
+
 }
 
 </style>
