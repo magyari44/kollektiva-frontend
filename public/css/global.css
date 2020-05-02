@@ -23,6 +23,10 @@ a:hover {
   text-decoration: none !important;
 }
 
+nav {
+  font-family: "Montserrat";
+}
+
 .navbar .navbar-brand {
   background-image: url("../img/logo/logo-2.png");
 }
@@ -37,6 +41,10 @@ a:hover {
   border-radius: 10px;
 }
 
+.btn-coral {
+  background-color: #00AEB3!important;
+}
+
 .btn-inner-stlye {
   font-family: 'Oswald', sans-serif;
   font-style: normal;
@@ -46,6 +54,12 @@ a:hover {
   text-transform: uppercase;
   color: #FFFFFF;
   padding: 9px 50px;
+}
+
+.bkg-box {
+  background: #F8F8F8;
+  box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
 }
 
 .form-input {
@@ -73,6 +87,11 @@ footer {
 footer {
   background: #383838;
   color: #FFFFFF;
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
 }
 
 @media screen and (max-width: 576px) {

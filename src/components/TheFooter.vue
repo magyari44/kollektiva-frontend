@@ -15,9 +15,9 @@
       </div>
       <div class="col-md-6" >
         <div class="col-lg-8" style="">
-          <p>A Kollektíva  elindításával az volt a célunk, hogy a jelenlegi vészhelyzetben egyáltalán nem működő,
+          <div>A Kollektíva  elindításával az volt a célunk, hogy a jelenlegi vészhelyzetben egyáltalán nem működő,
             stagnáló és jelentős anyagi veszteséget elszenvedő vállalkozásoknak és az őket támogatni kívánó vásárlóközönségnek
-            létrehozzunk egy közös támogató felületet.</p>
+            létrehozzunk egy közös támogató felületet.</div>
         </div>
       </div>
       <div class="col-md-6 d-flex flex-wrap">
@@ -60,6 +60,7 @@
           <div>Email: info@koll.hu</div>
           <div>Telefon: +36 30 1234 12</div>
           <div>Cím: Budapest</div>
+          <div>árvíztűrő tükörfúrógép</div>
         </div>
       </div>
 

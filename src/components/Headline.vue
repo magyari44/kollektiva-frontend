@@ -1,9 +1,9 @@
 <template>
   <div class="headline-container general-container">
 
-    <detail class="headline-description">Maradj kapcsolatban a számodra fontos vállalkozásokkal a krízis idején is.
+    <article class="headline-description">Maradj kapcsolatban a számodra fontos vállalkozásokkal a krízis idején is.
       A Kollektíva a kapocs a megbízható szolgáltatók és a nyitott szívű vevők között.
-    </detail>
+    </article>
 
     <div class="headline-buttons d-flex flex-sm-wrap flex-sm-row flex-column">
       <div class="headline-button_buy d-flex justify-content-center">
