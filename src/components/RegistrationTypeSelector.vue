@@ -26,8 +26,11 @@
       ValidationProvider,
     },
     props: {
-      registrationType: String,
-      userTypes: Array,
+      registrationType: "2",
+      userTypes: [
+        { text: "Vállalkozó vagyok", value: "2" },
+        { text: "Felhasználó vagyok", value: "1" }
+      ], //fiók típusa - type_id
     },
     data() {
       return {

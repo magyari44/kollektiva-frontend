@@ -52,7 +52,7 @@
             GYIK
           </router-link>
         </li>
-        <li class="nav-item connect">
+        <li v-if="!isAuthenticated" class="nav-item connect">
           <router-link
             class="connect-link"
             active-class="active"
@@ -62,6 +62,17 @@
             Csatlakozom
           </router-link>
         </li>
+        <li v-if="isAuthenticated" class="nav-item logout">
+          <a
+            @click="logout"
+            class="logout-link"
+          >
+            Kijelentkezés
+          </a>
+        </li>
+        <li v-if="isAuthenticated" class="nav-item">
+          Szia {{username}}
+        </li>
       </ul>
     </div>
   </nav>
@@ -69,9 +80,23 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { LOGOUT_USER } from "../store/actions.type";
 
 export default {
-  name: "RwvHeader"
+  name: "RwvHeader",
+  computed: {
+    ...mapGetters(["isAuthenticated", "user"]),
+    username: function() {
+        return this.user.name;
+    }
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch(LOGOUT_USER).then(() => {
+        this.$router.push({ name: "login" });
+      });
+    }
+  }
 };
 </script>
 
@@ -118,12 +143,25 @@ export default {
   padding: 0 30px;
 }
 
+.navbar .nav-item.logout {
+  border: 2px solid #d9534f;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 0 30px;
+}
+
 .navbar .nav-item.brand a {
   color: #00aeb3;
 }
 
 .navbar .nav-item.connect .connect-link {
   color: #00aeb3;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.navbar .nav-item.connect .logout-link {
+  color: #d9534f;
   display: table-cell;
   vertical-align: middle;
 }

@@ -1,4 +1,3 @@
-import { TagsService, ArticlesService } from "@/common/api.service";
 import { FETCH_ALL_OFFERS } from "./actions.type";
 import { FETCH_START, FETCH_END } from "./mutations.type";
 import { OfferService } from "../common/api.service";

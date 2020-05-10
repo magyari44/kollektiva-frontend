@@ -1,25 +1,48 @@
 import {
   REGISTER_USER,
-  LOGIN_USER
+  LOGIN_USER,
+  LOGOUT_USER,
+  CHECK_AUTH
 } from "./actions.type";
 
 import {
-  SET_USER
+  SET_USER,
+  NO_RESPONSE_ERROR,
+  SET_ERRORS,
+  SET_TOKEN
 } from "./mutations.type";
 
-import {UserService} from "../common/api.service";
+import ApiService, {UserService} from "../common/api.service";
+import JwtService from "@/common/jwt.service";
+import {toMutationPayload} from "./utils/async";
+import { resetState } from "./utils/state-controller";
+
 
 export function getInitialState() {
   return {
     user: {
+      name: "",
+      email: "",
+      roles: [],
       username: "",
     },
+    errors: null,
     isAuthenticated: false,
     // ...asyncState(LOGIN_USER, REGISTER_USER)
   }
 }
 
-const state = getInitialState();
+const state = {
+  user: {
+    name: "",
+    email: "",
+    roles: [],
+  },
+  errors: null,
+  isAuthenticated: !!JwtService.getToken()
+}
+
+// const state = getInitialState();
 
 const getters = {
   user(state) {
@@ -37,33 +60,14 @@ const actions = {
     let operation = {action: REGISTER_USER, successCode: 200};
 
     let payload = {
-      type_id: params.type_id,
       email: params.email,
       password: params.password,
       name: params.name,
-      phone: params.phone, //??????
-      contact_name: params.contact_name,
-      contact_email: params.contact_email,
-      contact_phone: params.contact_phone, //?????
-      description: params.description,
-      postalcode: params.postalcode,
-      city: params.city,
-      address: params.address,
-      mailing_address: params.mailing_address,
-      invoice_postalcode: params.invoice_postalcode,
-      invoice_city: params.invoice_city,
-      invoice_address: params.invoice_address,
-      vat_number: params.vat_number,
-      bank_account: params.bank_account,
-      logo: params.logo,
-      teaor: params.teaor,
-      link_website: params.link_website,
-      link_facebook: params.link_facebook,
-      link_instagram: params.link_instagram
+      password_confirmation: params.password
     };
     return UserService.registerUser(payload)
       .then(response => {
-        commit(SET_USER, response);
+        // commit(SET_USER, response);
       })
       .catch(error => {
         commit();
@@ -79,28 +83,69 @@ const actions = {
       password: params.password,
     };
     return UserService.loginUser(payload)
-      .then(response => {
-        store.dispatch('parametricSearch/' + EAGER_FETCH_PRODUCTS, null).then(() => {
-          commit(ASYNC_ACTION_END, toMutationPayload(operation, response));
-          Utils.tackUserId(response.data.userId);
-          console.log("parametric table data eagerly loaded.");
-        }).catch(() => {
-          console.warn("cannot eagerly load parametric table.");
-          commit(ASYNC_ACTION_END, toMutationPayload(operation, response));
-          Utils.tackUserId(response.data.userId);
-        });
+      .then(function (response) {
+        commit(SET_TOKEN, response.data);
+        console.log(response);
       })
       .catch(error => {
-        commit(NO_RESPONSE_ERROR, toMutationPayload(operation, error.response));
+        // commit(NO_RESPONSE_ERROR, toMutationPayload(operation, error.response));
         throw new Error(error);
       });
   },
+
+  [LOGOUT_USER]({commit}) {
+    commit(LOGOUT_USER);
+  },
+
+  [CHECK_AUTH](context) {
+    if (JwtService.getToken()) {
+      ApiService.setHeader();
+      ApiService.get("/current")
+        .then(function (response) {
+          context.commit(SET_USER, response.data);
+          console.log(response);
+        })
+        .catch( response => {
+          context.commit(SET_ERRORS, response.data.errors);
+        });
+    } else {
+      context.commit(LOGOUT_USER);
+    }
+  },
+
 };
 
 const mutations = {
-  [SET_USER](state, response) {
-    state.responseCode = response;
-  }
+  [SET_TOKEN](state, data) {
+    // state.responseCode = response;
+    JwtService.saveToken(data.token);
+    state.isAuthenticated = true;
+  },
+
+  [SET_USER](state, data) {
+    // state.responseCode = response;
+    state.user.email = data.email;
+    state.user.name = data.name;
+    if(data.is_user === 1){
+      state.user.roles.push("user");
+    }
+    if(data.is_company === 1){
+      state.user.roles.push("company");
+    }
+    if(data.is_admin === 1){
+      state.user.roles.push("admin");
+    }
+
+  },
+  [LOGOUT_USER]() {
+    state.isAuthenticated = false;
+    state.user = {};
+    state.errors = {};
+    JwtService.destroyToken();
+  },
+  [SET_ERRORS](state, error) {
+    state.errors = error;
+  },
 };
 
 function loginUserCallback(state, response) {

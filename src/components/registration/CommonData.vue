@@ -109,8 +109,14 @@
     },
     props: {
       registration_type: String,
-      user_scope_types: Array,
-      selected_scope_type: String,
+      user_scope_types: [
+        { name: "Tanuló" },
+        { name: "Alkalmazott" },
+        { name: "Nyugdíjas" },
+        { name: "Vállalkozó" },
+        { name: "Szabadúszó" }
+      ], //teaor szám vállalkozónál/foglalkozási kör usernél - teaor
+      selected_scope_type: "",
       real_name: String,
       username: String,
       email: String,

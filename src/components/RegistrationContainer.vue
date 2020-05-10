@@ -141,53 +141,11 @@
     },
     data() {
       return {
-        registrationType: "2",
-        userTypes: [
-          { text: "Vállalkozó vagyok", value: "2" },
-          { text: "Felhasználó vagyok", value: "1" }
-        ], //fiók típusa - type_id
-
-        user_scope_types: [
-          { name: "Tanuló" },
-          { name: "Alkalmazott" },
-          { name: "Nyugdíjas" },
-          { name: "Vállalkozó" },
-          { name: "Szabadúszó" }
-        ], //teaor szám vállalkozónál/foglalkozási kör usernél - teaor
-        selected_scope_type: "",
-
         username: "",  //vállalkozás neve/nickname - name
-        real_name: "", //kapcsolattartó/valódi név - contact_name
         email: "", //sima email - contact_email
-        phone: "", //telefonszám - phone
-
-        bank_account_number: "", //bankszámlaszám - bank_account
-        tax_number: "", //vállalkozói adószám - vat_number
-        zip_code: "", //vállalkozói irányítószám - postalcode
-
-        business_email: "", //vállalkozás email - email
-        business_city: "",
-        business_address: "",
-        business_logo: [],
-        business_description: "", //vállalkozói leírás - description
-        birthYear: "", //alapítás éve/születési év
 
         password: "", //jelszó - password
         password_re: "", //jelszó újra - password-re
-
-        contact_name: "",
-        contact_email: "", //email cím
-        contact_phone: "", //kapcsolattartó telefonszám(csak vállalkozó) - contact_phone
-
-        billing_zip_code: "",
-        billing_city: "",
-        billing_address: "",
-
-        link_website: "",
-        link_facebook: "",
-        link_instagram: "",
-
-        mailing_address: "",
 
         terms_and_conditions_checked: false
       };
@@ -201,25 +159,6 @@
             email: this.email,
             password: this.password,
             name: this.username,
-            phone: this.phone, //??????
-            contact_name: this.contact_name,
-            contact_email: this.business_email,
-            contact_phone: this.contact_phone, //?????
-            description: this.business_description,
-            postalcode: this.zip_code,
-            city: this.business_city,
-            address: this.business_address,
-            mailing_address: this.mailing_address,
-            invoice_postalcode: this.billing_zip_code,
-            invoice_city: this.billing_city,
-            invoice_address: this.billing_address,
-            vat_number: this.tax_number,
-            bank_account: this.bank_account_number,
-            logo: this.business_logo,
-            teaor: this.selected_scope_type,
-            link_website: this.link_website,
-            link_facebook: this.link_facebook,
-            link_instagram: this.link_instagram
           })
           .then(() => this.$router.push({ name: "home" }));
       },
