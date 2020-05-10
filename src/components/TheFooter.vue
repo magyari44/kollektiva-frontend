@@ -42,17 +42,9 @@
               class=""
               active-class="active"
               exact
-              :to="{ name: 'invite' }"
-            >
-              Meghívó
-            </router-link>
-            <router-link
-              class=""
-              active-class="active"
-              exact
               :to="{ name: 'faq' }"
             >
-              FAQ
+              GYIK
             </router-link>
         </div>
         <div class="footer-container__right_column col-lg-6">

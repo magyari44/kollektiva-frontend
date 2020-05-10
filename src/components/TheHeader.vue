@@ -1,9 +1,8 @@
 <template>
   <nav class="navbar navbar-light navbar-shadow navbar-fixed-top">
-    <div class="container">
-      <ul class="nav navbar-nav pull-xs-left">
-        <div class="navbar-brand"></div>
-        <li class="nav-item brand">
+    <div class="navbar-container d-flex flex-fill">
+      <ul class="nav navbar-nav justify-content-start flex-grow-1 flex-width-3">
+        <li class="nav-item brand" >
           <router-link class="" :to="{ name: 'home' }">
             <img src="img/logo/logo-2.png" style="max-height: 40px"/>
             Kollektiva
@@ -11,7 +10,8 @@
         </li>
       </ul>
 
-      <ul class="nav navbar-nav pull-xs-right d-flex flex-sm-row flex-column">
+      <ul class="nav navbar-nav d-flex flex-sm-row flex-column d-flex justify-content-center
+      flex-grow-1 flex-width-3 align-items-center">
         <li class="nav-item">
           <router-link
             class=""
@@ -29,7 +29,7 @@
             exact
             :to="{ name: 'about' }"
           >
-            A kezdeményezésről
+            A kollektíváról
           </router-link>
         </li>
         <li class="nav-item">
@@ -37,9 +37,9 @@
             class=""
             active-class="active"
             exact
-            :to="{ name: 'invite' }"
+            :to="{ name: 'registration' }"
           >
-            Meghívó
+            Vállalkozóknak
           </router-link>
         </li>
         <li class="nav-item">
@@ -52,14 +52,27 @@
             GYIK
           </router-link>
         </li>
-        <li v-if="!isAuthenticated" class="nav-item connect">
+      </ul>
+      <ul class="nav navbar-nav d-flex flex-sm-row flex-column d-flex justify-content-end
+      flex-grow-1 flex-width-3 align-items-center" >
+        <li v-if="!isAuthenticated" class="nav-item connect login">
           <router-link
-            class="connect-link"
+            class="login-link"
+            active-class="active"
+            exact
+            :to="{ name: 'login' }"
+          >
+            Bejelentkezés
+          </router-link>
+        </li>
+        <li v-if="!isAuthenticated" class="nav-item connect register">
+          <router-link
+            class="register-link"
             active-class="active"
             exact
             :to="{ name: 'register' }"
           >
-            Csatlakozom
+            Regisztráció
           </router-link>
         </li>
         <li v-if="isAuthenticated" class="nav-item logout">
@@ -117,6 +130,14 @@ export default {
   padding: .5rem 1rem;
 }
 
+.navbar-container {
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+.flex-width-3 {
+  width: 33%;
+}
 
 .navbar .navbar-nav {
   justify-content: space-between;
@@ -137,10 +158,18 @@ export default {
 }
 
 .navbar .nav-item.connect {
-  border: 2px solid #00aeb3;
   box-sizing: border-box;
   border-radius: 10px;
   padding: 0 30px;
+}
+
+.navbar .nav-item.login {
+  border: 2px solid black;
+}
+
+.navbar .nav-item.register {
+  border: 2px solid #00aeb3;
+  background: #00AEB3;
 }
 
 .navbar .nav-item.logout {
@@ -154,10 +183,18 @@ export default {
   color: #00aeb3;
 }
 
-.navbar .nav-item.connect .connect-link {
-  color: #00aeb3;
+.navbar .nav-item.connect .login-link,
+.navbar .nav-item.connect .register-link {
   display: table-cell;
   vertical-align: middle;
+}
+
+.navbar .nav-item.connect .login-link {
+  color: #000000;
+}
+
+.navbar .nav-item.connect .register-link {
+  color: #ffffff;
 }
 
 .navbar .nav-item.connect .logout-link {

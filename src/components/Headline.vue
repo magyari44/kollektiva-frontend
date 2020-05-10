@@ -11,7 +11,7 @@
           class="btn-orange btn-inner-stlye"
           :to="{ name: 'register' }"
         >
-          Vennék
+          Vásárló vagyok
         </router-link>
       </div>
 
@@ -20,7 +20,7 @@
           class="btn-orange btn-inner-stlye"
           :to="{ name: 'register' }"
         >
-          Eladnék
+          Vállalkozó vagyok
         </router-link>
       </div>
     </div>

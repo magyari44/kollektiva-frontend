@@ -4,10 +4,6 @@
     <HowItWorks></HowItWorks>
     <GradientArrow separator-title="Kiemelt ajánlatok"></GradientArrow>
     <OfferList></OfferList>
-    <GradientArrow
-      separator-title="Nem találja a kedvenc üzletét?"
-    ></GradientArrow>
-    <AskForInvite></AskForInvite>
   </div>
 </template>
 
