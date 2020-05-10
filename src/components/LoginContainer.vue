@@ -9,7 +9,9 @@
               Még nincs fiókod?
             </router-link>
           </p>
-
+          <ul v-if="errors" class="error-messages">
+            <li v-for="(v, k) in errors" :key="k">{{ v | error }}</li>
+          </ul>
           <form @submit.prevent="onSubmit(email, password)">
             <fieldset class="form-group">
             <input
@@ -43,7 +45,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+  import { mapGetters } from "vuex";
 import { LOGIN_USER } from "@/store/actions.type";
 
 export default {
@@ -62,9 +64,7 @@ export default {
     }
   },
   computed: {
-    ...mapState({
-      errors: state => state.auth.errors
-    })
+    ...mapGetters(["errors"]),
   }
 };
 </script>

@@ -80,6 +80,12 @@ nav {
 .content {
   flex: 1 0 auto;
 }
+
+.c-sliding-pagination__list {
+  display: flex;
+  flex-flow: row;
+}
+
 footer {
   flex-shrink: 0;
 }
@@ -94,6 +100,7 @@ footer {
   line-height: 19px;
 }
 
+/** media queries **/
 @media screen and (max-width: 576px) {
   .general-container {
     padding: 0;

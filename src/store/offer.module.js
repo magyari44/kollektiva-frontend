@@ -21,6 +21,11 @@ const actions = {
     commit(SET_OFFER, data);
     return data;
   },
+  async [FETCH_OFFER]({ commit }, offerSlug) {
+    const { data } = await OfferService.getOffer(offerSlug);
+    commit(SET_OFFER, data);
+    return data;
+  },
 
   async [UPLOAD_OFFER]({commit}, params) {
     // commit(UPLOAD_OFFER);

@@ -1,14 +1,17 @@
 <template>
   <div>
-    <div class="col-md-12 pagination-container pull-xs-right">
+    <div class="col-md-12 pagination-container d-flex justify-content-end">
       <SlidingPagination
         :current="currentPage"
         :total="totalPages"
         @page-change="pageChangeHandler"></SlidingPagination>
     </div>
-    <div class="offers-container">
-      <div class="categories-selector-container col-md-3"></div>
-      <div class="offers-container col-md-9">
+    <div class="col-md-12 offers-container d-flex flex-row">
+      <div class="categories-container col-md-2 d-flex justify-content-center flex-column">
+        <div class="d-flex justify-content-center"><h4>Kategóriák</h4></div>
+        <CategoriesCheckboxes></CategoriesCheckboxes>
+      </div>
+      <div class="offers-container col-md-10">
         <OfferList></OfferList>
       </div>
     </div>
@@ -19,11 +22,13 @@
   import SlidingPagination from 'vue-sliding-pagination'
   import SingleOfferTile from "./SingleOfferTile";
   import OfferList from "./OfferList";
+  import CategoriesCheckboxes from "./CategoriesCheckboxes";
 
 
   export default {
     name: "OffersPageContainer",
     components: {
+      CategoriesCheckboxes,
       SingleOfferTile,
       SlidingPagination,
       OfferList

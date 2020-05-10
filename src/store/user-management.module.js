@@ -2,14 +2,17 @@ import {
   REGISTER_USER,
   LOGIN_USER,
   LOGOUT_USER,
-  CHECK_AUTH
+  CHECK_AUTH,
 } from "./actions.type";
 
 import {
   SET_USER,
   NO_RESPONSE_ERROR,
   SET_ERRORS,
-  SET_TOKEN
+  SET_TOKEN,
+  UNAUTHORIZED,
+  REGISTRATION,
+  FAILED_REGISTRATION
 } from "./mutations.type";
 
 import ApiService, {UserService} from "../common/api.service";
@@ -38,7 +41,7 @@ const state = {
     email: "",
     roles: [],
   },
-  errors: null,
+  errors: {},
   isAuthenticated: !!JwtService.getToken()
 }
 
@@ -50,13 +53,14 @@ const getters = {
   },
   isAuthenticated(state) {
     return state.isAuthenticated;
+  },
+  errors(state) {
+    return state.errors;
   }
 };
 
 const actions = {
   [REGISTER_USER]({commit}, params) {
-    commit(REGISTER_USER);
-
     let operation = {action: REGISTER_USER, successCode: 200};
 
     let payload = {
@@ -70,7 +74,7 @@ const actions = {
         // commit(SET_USER, response);
       })
       .catch(error => {
-        commit();
+        commit(FAILED_REGISTRATION, error.response.data);
         throw new Error(error);
       });
   },
@@ -84,11 +88,11 @@ const actions = {
     };
     return UserService.loginUser(payload)
       .then(function (response) {
-        commit(SET_TOKEN, response.data);
-        console.log(response);
-      })
-      .catch(error => {
-        // commit(NO_RESPONSE_ERROR, toMutationPayload(operation, error.response));
+          commit(SET_TOKEN, response.data);
+          console.log(response);
+      }).catch(error => {
+        commit(UNAUTHORIZED, error.response.data);
+        // console.log(error);
         throw new Error(error);
       });
   },
@@ -122,6 +126,10 @@ const mutations = {
     state.isAuthenticated = true;
   },
 
+  [UNAUTHORIZED](state, data) {
+    state.errors = data;
+  },
+
   [SET_USER](state, data) {
     // state.responseCode = response;
     state.user.email = data.email;
@@ -146,6 +154,12 @@ const mutations = {
   [SET_ERRORS](state, error) {
     state.errors = error;
   },
+  [REGISTRATION](state, error) {
+    //successfull registration
+  },
+  [FAILED_REGISTRATION](state, error) {
+    state.errors = error;
+  }
 };
 
 function loginUserCallback(state, response) {

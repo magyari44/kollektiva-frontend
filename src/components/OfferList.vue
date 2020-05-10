@@ -1,5 +1,5 @@
 <template>
-  <div class="offer_list-container general-container">
+  <div class="offer_list-container">
       <SingleOffer v-for="offer in featuredOffers" :offer="offer"></SingleOffer>
   </div>
 </template>

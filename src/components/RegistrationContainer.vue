@@ -7,6 +7,9 @@
         Van már fiókod?
       </router-link>
     </p>
+    <ul v-if="errors" class="error-messages">
+      <li v-for="(v, k) in errors" :key="k">{{ v | error }}</li>
+    </ul>
     <ValidationObserver v-slot="{ handleSubmit }" slim>
       <form @submit.prevent="handleSubmit(onSubmit)">
 <!--        <RegistrationTypeSelector :registration-type.sync="registrationType" :user-types.sync="userTypes"/>-->
@@ -84,7 +87,7 @@
         <fieldset class="col-lg-12">
           <div class="form-group row form-check">
             <validation-provider rules="required" v-slot="{errors}" slim>
-              <input type="checkbox" class="form-check-input" id="terms-and-conditions-check"
+              <input type="checkbox" required="true" class="form-check-input" id="terms-and-conditions-check"
                      v-model="terms_and_conditions_checked" style="margin-left: 0;" name="szabályzat">
               <label class="form-check-label" for="terms-and-conditions-check" style="margin-left: 1.25rem;">
                 Elfogadom a felhasználási feltételeket.</label>
@@ -113,6 +116,7 @@
   } from "vee-validate/dist/vee-validate.full";
   import hu from "vee-validate/dist/locale/hu.json";
   import RegistrationTypeSelector from "./RegistrationTypeSelector";
+  import { mapGetters } from "vuex";
 
   localize("hu", hu);
   extend("password", {
@@ -150,7 +154,9 @@
         terms_and_conditions_checked: false
       };
     },
-    computed: {},
+    computed: {
+      ...mapGetters(["errors"]),
+    },
     methods: {
       onSubmit() {
         this.$store
@@ -159,8 +165,7 @@
             email: this.email,
             password: this.password,
             name: this.username,
-          })
-          .then(() => this.$router.push({ name: "home" }));
+          }).then(() => this.$router.push({ name: "home" }));
       },
 
       getFiles(files) {

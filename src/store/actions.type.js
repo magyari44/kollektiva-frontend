@@ -6,3 +6,4 @@ export const FETCH_CATEGORIES = "fetchCategories";
 export const UPLOAD_OFFER = "uploadSingleOffer";
 export const LOGIN_USER = "loginUser";
 export const LOGOUT_USER = "logoutUser";
+export const SET_UNAUTHORIZED = "setUnauthorized";

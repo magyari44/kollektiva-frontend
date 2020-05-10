@@ -6,3 +6,6 @@ export const SET_CATEGORIES = "setCategories";
 export const NO_RESPONSE_ERROR = "noResponseError";
 export const SET_ERRORS = "setErrors";
 export const SET_TOKEN = "setToken";
+export const UNAUTHORIZED = "unauthorized";
+export const REGISTRATION = "registration";
+export const FAILED_REGISTRATION = "failedRegistration";
