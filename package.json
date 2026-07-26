@@ -7,7 +7,7 @@
     "awesome-mask": "^1.1.1",
     "axios": "^0.19.0",
     "date-fns": "^1.30.1",
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "register-service-worker": "^1.6.2",
     "vee-validate": "^3.2.5",
     "vue": "^2.6.10",
